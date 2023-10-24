@@ -1,0 +1,3 @@
+first open terminal 
+type 
+mongoimport --db databasename --collection collection_name --file filename --jsonArray
