@@ -7,7 +7,7 @@ db.allbooks.find({$or:[{pages:{$eq:500}},{country:{$eq:"India"}}]})
 // nor    all conditon false
 db.allbooks.find({$nor:[{pages:{$lt:500}},{country:{$eq:"India"}}]})
 
-// not 500 graterthan 
+// not true false ,false true 500 graterthan  
 db.allbooks.find({pages:{$not:{$gt:500}}})
 
 // complex query

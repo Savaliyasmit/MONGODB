@@ -5,6 +5,9 @@ db.student.updateMany({},{$inc:{rollno:3}})
 //$unset use remove field
 db.student.updateOne({},{$unset : { rollno:4 } })
 
+// $unset remove all field like id
+db.facultydetails.updateMany({},{$unset:{id:1}}) 
+
 //rename filed name rollno to studentRollno:3  
 db.student.updateMany({},{$rename : { rollno :"studentRollno" } })   
 
