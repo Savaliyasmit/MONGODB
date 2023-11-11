@@ -1,0 +1,17 @@
+intalll mongodb in window 11
+
+first download of tools like:-
+1.mongodb community server
+2.mongodb shell 
+3.mongodb command lines tools
+
+
+1.intall mongodb community server in pc 
+2.C:\Program Files\MongoDB\Server\7.0\bin copy this addrss
+3.start type env go to environment varrible
+4.go to systeam varible and click path and paste a copy address
+5.download zip mongoshell and exterect C:\Program Files\MongoDB
+6.go to systeam varible and click path and paste a copy address
+7.after create make a folder in c: drive  main foldar name "data" and open folder make new name "db".
+8.mongodb command lines tools download zip file unzip in mongodb in folder name bin paste
+9.open cmd type mongod --version
