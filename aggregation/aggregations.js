@@ -71,3 +71,20 @@ db.carts.aggregate([
 
 
 ])
+
+
+db.reviews.aggregate([
+  {$match: {"isDelete":false}},
+  {
+  $lookup: {
+         from: "products",
+         localField: "product",
+         foreignField: "_id",
+         as: "product"
+       }
+ },{$unwind: "$product"},
+ {$project: {"id":1,"user":1,"product._id":1,"product.title":1,"product.price":1,"review":1,"product.productImage":1,"createdAt":1,"updatedAt":1}},
+ {$group: { _id: null,reviews:{$push:"$$ROOT"},totalReviews:{$sum:1}}},
+ // {$unwind: "$reviews"},
+ {$project: {"_id":0}}
+])
