@@ -88,3 +88,22 @@ db.reviews.aggregate([
  // {$unwind: "$reviews"},
  {$project: {"_id":0}}
 ])
+
+//bike rent app logic  cart item deposite sum and total rent after all sum totalprice and total deposite
+db.products.aggregate([
+  {
+    $group: {
+      _id: null,
+      products: { $push: "$$ROOT" },
+      totalProductPrice: { $sum: "$price" },
+      deposite: { $sum: "$deposite"}
+    }
+  },
+  {
+    $addFields: {
+      paybleprice: { $sum: ["$totalProductPrice", "$deposite"] }
+    }
+  },
+  {$project: {_id:0}}
+])
+  
