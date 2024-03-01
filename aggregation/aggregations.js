@@ -95,15 +95,19 @@ db.products.aggregate([
     $group: {
       _id: null,
       products: { $push: "$$ROOT" },
-      totalProductPrice: { $sum: "$price" },
+    //   totalProductPrice: { $sum: "$price" },
+       totalBikeRent: {
+        $sum: { $multiply: ["$price", "$quntity"] }
+      },
       deposite: { $sum: "$deposite"}
     }
   },
   {
     $addFields: {
-      paybleprice: { $sum: ["$totalProductPrice", "$deposite"] }
+      paybleprice: { $sum: ["$totalBikeRent", "$deposite"] },
+    
     }
-  },
-  {$project: {_id:0}}
+  }
 ])
+
   
